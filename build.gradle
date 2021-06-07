@@ -27,7 +27,7 @@ dependencies {
 
 
 	//implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.23'
-	implementation group: 'org.postgresql', name: 'postgresql', version: '9.3-1100-jdbc4'
+	runtimeOnly group: 'org.postgresql', name: 'postgresql'
 
 	//providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
