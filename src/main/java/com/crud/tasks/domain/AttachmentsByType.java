@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 public class AttachmentsByType {
 
-//    @JsonProperty
+    @JsonProperty("trello")
     private Trello trello;
 }

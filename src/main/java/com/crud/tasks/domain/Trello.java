@@ -6,9 +6,9 @@ import lombok.Data;
 @Data
 public class Trello {
 
-//    @JsonProperty
+    @JsonProperty("board")
     private Integer board;
 
-//    @JsonProperty
+    @JsonProperty("card")
     private Integer card;
 }

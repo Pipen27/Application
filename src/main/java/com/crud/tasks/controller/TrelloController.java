@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/v1/trello")
@@ -23,26 +24,26 @@ public class TrelloController {
         List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
 
 
-//        trelloBoards.stream()
-//                .filter(trelloBoardDto -> trelloBoardDto.getName().contains("Kodilla"))
-//                .forEach(trelloBoardDto -> {
-//                    if(trelloBoardDto.getId() != null && trelloBoardDto.getName() != null) {
-//                        System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName());
-//                    }
-//                });
-
-        trelloBoards.forEach(trelloBoardDto -> {
-            System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName() + "\n");
-
-            System.out.println("This board contains lists: \n");
-
-            trelloBoardDto.getLists().forEach(trelloList -> {
-                System.out.println(
-                        trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed()
+        trelloBoards.stream()
+                .filter(trelloBoardDto -> Objects.nonNull(trelloBoardDto.getId()) && Objects.nonNull(trelloBoardDto.getName()))
+                .filter(trelloBoardDto -> trelloBoardDto.getName().contains("Kodilla"))
+                .forEach(trelloBoardDto -> {
+                        System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName());
+                    }
                 );
-            });
 
-        });
+//        trelloBoards.forEach(trelloBoardDto -> {
+//            System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName() + "\n");
+//
+//            System.out.println("This board contains lists: \n");
+//
+//            trelloBoardDto.getLists().forEach(trelloList -> {
+//                System.out.println(
+//                        trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed()
+//                );
+//            });
+//
+//        });
 
     }
 

@@ -6,9 +6,9 @@ import lombok.Data;
 @Data
 public class Badges {
 
-//    @JsonProperty
+    @JsonProperty("votes")
     protected Integer votes;
 
-//    @JsonProperty
+    @JsonProperty("attachmentsByType")
     private AttachmentsByType attachments;
 }
