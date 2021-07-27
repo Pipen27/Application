@@ -34,10 +34,8 @@ public class EmailScheduler {
         long size = taskRepository.count();
         String basicText = "Currently in database you got: ";
 
-        if (size <= 1) {
-            return basicText + size + " task.";
-        } else {
-            return basicText + size + " tasks.";
-        }
+        String message = size <=1 ? basicText + size + " task." : basicText + size + " tasks.";
+        return message;
+
     }
 }
