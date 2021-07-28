@@ -32,10 +32,9 @@ public class EmailScheduler {
     public String properlyGrammarySetter() {
 
         long size = taskRepository.count();
-        String basicText = "Currently in database you got: ";
+        String basicText = "Currently in database you got: " + size + ((size > 1) ? "tasks" : "task");
 
-        String message = size <=1 ? basicText + size + " task." : basicText + size + " tasks.";
-        return message;
+        return basicText;
 
     }
 }
